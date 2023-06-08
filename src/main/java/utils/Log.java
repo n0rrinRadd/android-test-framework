@@ -8,10 +8,6 @@ import org.testng.ITestResult;
 
 import core.AppConfig;
 
-//
-// Created by Marko Zhen on 2015-10-08.
-//
-
 public final class Log {
 
     private static String NEW_LINE = System.getProperty("line.separator");

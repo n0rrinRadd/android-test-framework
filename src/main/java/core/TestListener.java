@@ -8,9 +8,6 @@ import utils.core.MobileDriverUtils;
 import utils.core.WebDriverUtils;
 import utils.mail.testFailMail;
 
-/**
- * Created by axroberts on 10/31/15.
- */
 public class TestListener extends TestListenerAdapter {
 
     /**

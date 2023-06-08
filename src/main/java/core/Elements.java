@@ -43,8 +43,6 @@ import utils.Log;
  * be found.</p>
  *
  *
- * @author Marko Zhen
- *
  */
 
 public class Elements implements Iterable<Elements> {

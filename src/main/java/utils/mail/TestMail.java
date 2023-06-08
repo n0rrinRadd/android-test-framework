@@ -19,9 +19,6 @@ import javax.mail.internet.MimeMultipart;
 import utils.Log;
 import utils.StringConverter;
 
-/**
- * Created by axroberts on 11/5/15.
- */
 public abstract class testMail {
 
     Message mEmail;

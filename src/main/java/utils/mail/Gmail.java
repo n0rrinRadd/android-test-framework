@@ -12,9 +12,6 @@ import core.Elements;
 import data.users.Customer;
 import utils.Log;
 
-/**
- * Created by Himani on 1/25/16.
- */
 public class Gmail {
 
     public static Message getEmailFromCustomerInbox(Customer customer) {

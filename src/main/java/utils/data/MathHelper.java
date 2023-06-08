@@ -1,8 +1,5 @@
 package utils.data;
 
-/**
- * Created by vishalkuo on 6/17/15.
- */
 public final class MathHelper {
 
     private MathHelper() {

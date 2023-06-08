@@ -3,10 +3,6 @@ package utils;
 import org.testng.asserts.Assertion;
 import org.testng.asserts.IAssert;
 
-//
-//  Created by Marko Zhen on 2015-10-23.
-//
-
 public class Assert extends Assertion {
 
     @Override

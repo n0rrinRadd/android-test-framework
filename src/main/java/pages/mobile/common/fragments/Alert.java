@@ -5,9 +5,6 @@ import core.Elements;
 import org.openqa.selenium.By;
 import utils.core.MobileDriverUtils;
 
-/**
- * Created by karansingh on 12/21/15.
- */
 public class Alert {
 
     // elements

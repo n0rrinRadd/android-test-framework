@@ -10,13 +10,8 @@ public final class AppConfig {
 	private AppConfig() {}
 
 	public enum Machine {
-		local		("127.0.0.1", "8443", "4723"),
-		scrapper	("172.16.50.243", "4444", "4723"),
-		hook		("172.16.50.82", "4444", "4723"),
-		bonecrusher	("0.0.0.0", "4444", "4723"),
-		longhaul	("172.16.50.158", "4444", "4723"),
-		mixmaster	("172.16.50.42", "4444", "4723"),
-		scavenger	("172.16.50.52", "4444", "4723"),
+		local		("0.0.0.0", "8443", "4723"),
+		stg      	("0.0.0.0", "4444", "4723"),
 		sauce		(sauceLabsUser + ":" + sauceLabsKey + "@ondemand.saucelabs.com", "80", "");
 
 		private final String address;
@@ -36,7 +31,7 @@ public final class AppConfig {
 
 
 	public enum testEnvironment {
-		local		("127.0.0.1:8443", "/test/git-repos/testmobile/test-android-pos/build/outputs/apk/" + appFilename),
+		local		("0.0.0.0:8443", "/test/git-repos/testmobile/test-android-pos/build/outputs/apk/" + appFilename),
 		stage		("test-stage.herokuapp.com", "s3.amazonaws.com/test-stage/static-content/apks/" + appFilename),
 		prod		("www.test.com", "test.com/link/apk");
 

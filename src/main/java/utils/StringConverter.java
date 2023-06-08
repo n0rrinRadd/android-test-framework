@@ -4,9 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
 
-/**
- * Created by axroberts on 12/4/15.
- */
 public class StringConverter {
 
     public static String toHtml(String string) {

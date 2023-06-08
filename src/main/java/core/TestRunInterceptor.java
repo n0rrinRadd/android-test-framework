@@ -15,9 +15,6 @@ import utils.Log;
 import utils.TestGroup;
 
 
-/**
- * Created by axroberts on 1/20/16.
- */
 public class TestRunInterceptor implements IMethodInterceptor {
 
     public List<IMethodInstance> intercept(List<IMethodInstance> methods, ITestContext context) {

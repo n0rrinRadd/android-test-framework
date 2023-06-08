@@ -2,9 +2,6 @@ package utils.data;
 
 import java.util.Random;
 
-/**
- * Created by vishalkuo on 15-05-07.
- */
 public final class RandomGenHelper {
 
     public final static String randomSample  = "abcdefghijklmnopqrstuvwxyz1234567890";
