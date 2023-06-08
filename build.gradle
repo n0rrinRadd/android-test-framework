@@ -1,0 +1,84 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'io.appium:java-client:3.2.0'
+    compile 'org.testng:testng:6.9.8'
+    compile 'org.seleniumhq.selenium:selenium-java:2.48.2'
+    compile 'org.seleniumhq.selenium:selenium-chrome-driver:2.48.2'
+    compile 'org.seleniumhq.selenium:selenium-server:2.48.2'
+    compile 'org.seleniumhq.selenium:selenium-firefox-driver:2.48.2'
+    compile 'org.apache.servicemix.bundles:org.apache.servicemix.bundles.postgresql:9.4-1201-jdbc41_1'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'javax.mail:mail:1.4'
+    compile 'org.apache.logging.log4j:log4j-api:2.4.1'
+    compile 'org.apache.logging.log4j:log4j-core:2.4.1'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+        resources {
+            srcDir 'resources'
+        }
+    }
+    test {
+        java {
+            srcDir 'src/testscripts/java'
+        }
+    }
+    testscripts {
+        java {
+            compileClasspath += main.output
+            runtimeClasspath += main.output
+        }
+    }
+}
+
+configurations {
+    testscriptsCompile.extendsFrom testCompile
+    testscriptsRuntime.extendsFrom testRuntime
+}
+
+task runTests(type:Test) {
+    useTestNG() {
+        configFailurePolicy='continue'
+        includeGroups 'setUp', System.properties['group'], 'tearDown'
+        excludeGroups 'auto-bug', 'dev-bug', 'incomplete'
+    }
+    afterTest { desc, result ->
+        println "***Executed ${desc.name} [${desc.className}] with result: ${result.resultType}***"
+    }
+    description = "Run script(s) by group (located in src/testscripts/...)."
+}
+
+task devBug(type:Test) {
+    useTestNG(){
+        configFailurePolicy='continue'
+        includeGroups 'setUp', 'dev-bug', 'tearDown'
+    }
+    afterTest { desc, result ->
+        println "***Executed ${desc.name} [${desc.className}] with result: ${result.resultType}***"
+    }
+    description = "Run tests with development bugs (located in src/testscripts/...)."
+}
+
+task autoBug(type:Test) {
+    useTestNG(){
+        configFailurePolicy='continue'
+        includeGroups 'setUp', 'auto-bug', 'incomplete', 'tearDown'
+    }
+    afterTest { desc, result ->
+        println "***Executed ${desc.name} [${desc.className}] with result: ${result.resultType}***"
+    }
+    description = "Run tests with automation script/infrastructure bugs (located in src/testscripts/...)."
+}
+
+
